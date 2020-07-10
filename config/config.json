@@ -1,0 +1,15 @@
+{
+    "web": {
+        "port": "80",
+        "ip": "0.0.0.0"
+    },
+    "fastify": {
+        "disableRequestLogging": true
+    },
+    "logger": {
+        "enabled": true,
+        "level": "info",
+        "name": "sample-app",
+        "prettyPrint": false
+    }
+}
