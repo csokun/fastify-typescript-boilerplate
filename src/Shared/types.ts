@@ -21,8 +21,13 @@ export interface IFastifyCustomOptions {
     disableRequestLogging: boolean
 }
 
-export interface IConfiguration {
+export interface ISwaggerOptions {
+    title?: string,
+    enabled: boolean,
+}
+export interface IAppConfig {
     web: IWebOptions,
     fastify: IFastifyCustomOptions,
-    logger: ILoggerCustomOptions
+    logger: ILoggerCustomOptions,
+    swagger: ISwaggerOptions
 }

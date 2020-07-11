@@ -6,6 +6,9 @@
     "fastify": {
         "disableRequestLogging": true
     },
+    "swagger": {
+        "enabled": true
+    },
     "logger": {
         "enabled": true,
         "level": "info",

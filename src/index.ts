@@ -2,20 +2,22 @@
 import { Server, AppConfig } from './Infra';
 // App
 import { App } from './App';
-import { IConfiguration } from './Shared/types';
+import { IAppConfig } from './Shared/types';
 
-const appConfig = AppConfig.loadConfig<IConfiguration>({
+const appConfig = AppConfig.loadConfig<IAppConfig>({
     configPath: '../../../config',
 });
 const {
     web: { port, ip },
     fastify: fastifyConfig,
-    logger: loggerConfig
+    logger: loggerConfig,
+    swagger: swaggerConfig
 } = appConfig;
 
 const fastify = Server.create({
     ...fastifyConfig,
     loggerConfig,
+    swaggerConfig,
 });
 
 fastify.register(App, {});
