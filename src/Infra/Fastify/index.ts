@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
 const helmet = require('fastify-helmet');
-
+import { Application } from '../../types';
 import { Logger, Swagger, genReqId } from './Common';
 
 
@@ -11,8 +10,8 @@ export function create({
   disableRequestLogging = false,
   loggerConfig,
   swaggerConfig,
-}): Fastify.FastifyInstance<Server, IncomingMessage, ServerResponse, Fastify.FastifyLoggerInstance> {
-  const fastify: Fastify.FastifyInstance = Fastify.fastify({
+}): Application {
+  const fastify: Application = Fastify.fastify({
     logger: Logger.create({ ...loggerConfig }),
     disableRequestLogging,
     requestIdHeader: 'correlationId',

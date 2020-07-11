@@ -1,5 +1,5 @@
-import { FastifySwaggerSchema } from '../types';
+import { SwaggerSchema } from '../types';
 
-export const catchAllSchema: FastifySwaggerSchema = {
+export const catchAllSchema: SwaggerSchema = {
     summary: 'Catch-all'
 }

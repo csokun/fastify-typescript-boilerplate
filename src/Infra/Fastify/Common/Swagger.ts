@@ -1,32 +1,25 @@
-import { ISwaggerOptions } from "src/types";
-
-import { FastifyInstance } from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const swagger = require('fastify-swagger');
+const fp = require('fastify-plugin');
 
-export async function Swagger(
-    fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>,
-    options: ISwaggerOptions
-): Promise<void> {
+import { ISwaggerOptions, Application } from '../../../types';
+
+async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promise<void> {
     const routePrefix = '/documentations';
-
-    if (options.enabled) {
-        fastify.register(swagger, {
-            swagger: {
-                info: {
-                    title: 'Test swagger',
-                    description: 'testing the fastify swagger api',
-                    version: '0.1.0'
-                },
+    app.register(swagger, {
+        swagger: {
+            info: {
+                title: 'Test swagger',
+                description: 'testing the fastify swagger api',
+                version: '0.1.0'
             },
-            exposeRoute: true,
-            routePrefix
-        });
-        return;
-    }
-
-    fastify.get(routePrefix, async (req, reply) => {
-        reply.status(404);
+        },
+        exposeRoute: options.enabled,
+        routePrefix
     });
 }
+
+export const Swagger = fp(swaggerPlugin, {
+    fastify: '3.x',
+    name: 'Swagger'
+});

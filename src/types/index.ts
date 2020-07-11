@@ -1,9 +1,5 @@
-import { FastifySchema } from "fastify";
-
-export interface FastifySwaggerSchema extends FastifySchema {
-    summary?: string,
-    description?: string
-}
+export { Application } from './application';
+export { SwaggerSchema } from './swagger';
 
 export interface IWebOptions {
     port: number,
