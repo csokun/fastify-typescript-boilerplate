@@ -1,12 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
 const helmet = require('fastify-helmet');
-import { Application, Logger, ISwaggerOptions } from '@Shared/types';
-import { Swagger, genReqId } from './Common';
+import { genReqId } from './Common';
+import { Swagger, Massive } from './Plugins';
+import {
+  Application,
+  Logger,
+  ISwaggerOptions,
+  IPgSQLConnectionOptions
+} from '@Shared/types';
 
 type fastifyCreateOptions = {
   disableRequestLogging: boolean,
   logger: Logger,
+  pgsqlConfig?: IPgSQLConnectionOptions,
   swaggerConfig: ISwaggerOptions
 }
 
@@ -14,6 +21,7 @@ type fastifyCreateOptions = {
 export function create({
   disableRequestLogging = true,
   logger,
+  pgsqlConfig,
   swaggerConfig,
 }: fastifyCreateOptions): Application {
   const fastify: Application = Fastify.fastify({
@@ -26,8 +34,10 @@ export function create({
 
   // global plugin
   // ref. https://github.com/fastify/fastify-helmet
-  fastify.register(helmet, {});
-  fastify.register(Swagger, swaggerConfig);
+  fastify
+    .register(helmet, {})
+    .register(Swagger, swaggerConfig)
+    .register(Massive, pgsqlConfig);
 
   return fastify;
 }

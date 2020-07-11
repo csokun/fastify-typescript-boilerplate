@@ -11,12 +11,14 @@ const {
     web: { port, ip },
     fastify: fastifyConfig,
     logger: loggerConfig,
+    pgsql: pgsqlConfig,
     swagger: swaggerConfig
 } = appConfig;
 
 const fastify = Server.create({
     ...fastifyConfig,
     logger: Logger.create({ ...loggerConfig }),
+    pgsqlConfig,
     swaggerConfig,
 });
 

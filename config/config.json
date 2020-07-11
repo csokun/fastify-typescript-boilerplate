@@ -16,6 +16,7 @@
         "prettyPrint": false
     },
     "pgsql": {
+        "enabled": false,
         "database": "sample-app",
         "user": "*******",
         "password": "*******",
