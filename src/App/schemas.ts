@@ -1,4 +1,4 @@
-import { SwaggerSchema } from '../types';
+import { SwaggerSchema } from '@Shared/types';
 
 export const catchAllSchema: SwaggerSchema = {
     summary: 'Catch-all'

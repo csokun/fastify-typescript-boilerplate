@@ -2,7 +2,7 @@
 const swagger = require('fastify-swagger');
 const fp = require('fastify-plugin');
 
-import { ISwaggerOptions, Application } from '../../../types';
+import { ISwaggerOptions, Application } from '@Shared/types';
 
 async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promise<void> {
     const routePrefix = '/documentations';

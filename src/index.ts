@@ -2,7 +2,7 @@
 import { Server, AppConfig } from './Infra';
 // App
 import { App } from './App';
-import { IAppConfig } from './types';
+import { IAppConfig } from '@Shared/types';
 
 const appConfig = AppConfig.loadConfig<IAppConfig>({
     configPath: '../../../config',

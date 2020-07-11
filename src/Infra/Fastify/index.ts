@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
 const helmet = require('fastify-helmet');
-import { Application } from '../../types';
+import { Application } from '@Shared/types';
 import { Logger, Swagger, genReqId } from './Common';
-
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function create({

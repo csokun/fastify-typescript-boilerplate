@@ -1,4 +1,4 @@
-import { Application } from '../../types';
+import { Application } from '@Shared/types';
 import * as Schemas from './schemas';
 
 export async function Healthz(app: Application): Promise<void> {
