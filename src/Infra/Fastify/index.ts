@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
 import { Logger } from './Common';
 import * as uuid from 'uuid';
 import { Server, IncomingMessage, ServerResponse } from 'http';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const helmet = require('fastify-helmet');
+const swagger = require('fastify-swagger');
 
 const genReqId = (req): string => {
   const correlatonId = req.headers['x-correaltionid']
@@ -30,6 +31,17 @@ export function create({
   // global plugin
   // ref. https://github.com/fastify/fastify-helmet
   fastify.register(helmet, {});
+  fastify.register(swagger, {
+    swagger: {
+      info: {
+        title: 'Test swagger',
+        description: 'testing the fastify swagger api',
+        version: '0.1.0'
+      },
+    },
+    exposeRoute: true,
+    routePrefix: '/documentations'
+  });
 
   return fastify;
 }
