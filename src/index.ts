@@ -1,5 +1,5 @@
 // Shared
-import { Server, AppConfig } from './Infra';
+import { Server, AppConfig, Logger } from './Infra';
 // App
 import { App } from './App';
 import { IAppConfig } from '@Shared/types';
@@ -16,7 +16,7 @@ const {
 
 const fastify = Server.create({
     ...fastifyConfig,
-    loggerConfig,
+    logger: Logger.create({ ...loggerConfig }),
     swaggerConfig,
 });
 

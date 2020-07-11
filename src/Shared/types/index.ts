@@ -1,5 +1,7 @@
 export { Application } from './application';
 export { SwaggerSchema } from './swagger';
+export { PgsqlConnectionConfig } from './pgsql';
+export { Logger } from './logger';
 
 export interface IWebOptions {
     port: number,

@@ -1,17 +1,23 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
 const helmet = require('fastify-helmet');
-import { Application } from '@Shared/types';
-import { Logger, Swagger, genReqId } from './Common';
+import { Application, Logger, ISwaggerOptions } from '@Shared/types';
+import { Swagger, genReqId } from './Common';
+
+type fastifyCreateOptions = {
+  disableRequestLogging: boolean,
+  logger: Logger,
+  swaggerConfig: ISwaggerOptions
+}
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function create({
-  disableRequestLogging = false,
-  loggerConfig,
+  disableRequestLogging = true,
+  logger,
   swaggerConfig,
-}): Application {
+}: fastifyCreateOptions): Application {
   const fastify: Application = Fastify.fastify({
-    logger: Logger.create({ ...loggerConfig }),
+    logger,
     disableRequestLogging,
     requestIdHeader: 'correlationId',
     requestIdLogLabel: 'correlationId',
