@@ -1,4 +1,5 @@
 import * as pino from 'pino';
+import { LoggerCustomOptions } from 'App';
 
 export function create({
     name = 'sample-app',
@@ -6,13 +7,7 @@ export function create({
     redact = [],
     level = 'info',
     prettyPrint = false
-}: {
-    enabled: boolean,
-    level: string,
-    name?: string,
-    redact?: [],
-    prettyPrint?: boolean
-}): pino.Logger {
+}: LoggerCustomOptions): pino.Logger {
     return pino({
         name,
         enabled,
