@@ -1,4 +1,4 @@
-import { FastifySwaggerSchema } from '../Shared/types';
+import { FastifySwaggerSchema } from '../types';
 
 export const catchAllSchema: FastifySwaggerSchema = {
     summary: 'Catch-all'

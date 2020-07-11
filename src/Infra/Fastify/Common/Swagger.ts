@@ -1,4 +1,4 @@
-import { ISwaggerOptions } from "src/Shared/types";
+import { ISwaggerOptions } from "src/types";
 
 import { FastifyInstance } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';

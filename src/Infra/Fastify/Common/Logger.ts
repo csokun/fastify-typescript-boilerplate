@@ -1,5 +1,5 @@
 import * as pino from 'pino';
-import { ILoggerCustomOptions } from '../../../Shared/types';
+import { ILoggerCustomOptions } from '../../../types';
 
 export function create({
     name = 'sample-app',
