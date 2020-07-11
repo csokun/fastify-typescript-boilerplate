@@ -6,7 +6,13 @@ export function create({
     redact = [],
     level = 'info',
     prettyPrint = false
-}) {
+}: {
+    enabled: boolean,
+    level: string,
+    name?: string,
+    redact?: [],
+    prettyPrint?: boolean
+}): pino.Logger {
     return pino({
         name,
         enabled,

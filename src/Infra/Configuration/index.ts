@@ -2,7 +2,7 @@ import * as nconf from 'nconf';
 import * as path from 'path';
 import * as fs from 'fs';
 
-export const loadConfig = ({ configPath = '' }) => {
+export function loadConfig<T>({ configPath = '' }: { configPath: string }): T {
     const appEnv = 'local';
     const envVarsAppPrefix = 'app__';
     const rootPath = path.join(__dirname, configPath);

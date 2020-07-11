@@ -2,8 +2,11 @@
 import { Server, AppConfig } from './Infra';
 // App
 import { App } from './App';
+import { IConfiguration } from './IConfiguration';
 
-const appConfig = AppConfig.loadConfig({ configPath: '../../../config' });
+const appConfig = AppConfig.loadConfig<IConfiguration>({
+    configPath: '../../../config',
+});
 const {
     web: { port, ip },
     fastify: fastifyConfig,
