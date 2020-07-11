@@ -1,10 +1,12 @@
 import * as Fastify from 'fastify';
 import { Logger } from './Common';
 import * as uuid from 'uuid';
+import { Server, IncomingMessage, ServerResponse } from 'http';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const helmet = require('fastify-helmet');
 
-const genReqId = (req) => {
-  let correlatonId = req.headers['x-correaltionid']
+const genReqId = (req): string => {
+  const correlatonId = req.headers['x-correaltionid']
     || req.headers['x-correlation-id']
     || req.headers['request-id']
     || uuid.v4();
@@ -12,10 +14,11 @@ const genReqId = (req) => {
   return correlatonId;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function create({
   disableRequestLogging = false,
-  loggerConfig,
-}) {
+  loggerConfig
+}): Fastify.FastifyInstance<Server, IncomingMessage, ServerResponse, Fastify.FastifyLoggerInstance> {
   const fastify: Fastify.FastifyInstance = Fastify.fastify({
     logger: Logger.create({ ...loggerConfig }),
     disableRequestLogging,
