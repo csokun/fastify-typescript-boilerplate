@@ -1,6 +1,8 @@
+import { IPgSQLConnectionOptions } from './pgsql';
+
 export { Application } from './application';
 export { SwaggerSchema } from './swagger';
-export { PgsqlConnectionConfig } from './pgsql';
+export { IPgSQLConnectionOptions } from './pgsql';
 export { Logger } from './logger';
 
 export interface IWebOptions {
@@ -27,5 +29,6 @@ export interface IAppConfig {
     web: IWebOptions,
     fastify: IFastifyCustomOptions,
     logger: ILoggerCustomOptions,
-    swagger: ISwaggerOptions
+    swagger: ISwaggerOptions,
+    pgsql: IPgSQLConnectionOptions,
 }

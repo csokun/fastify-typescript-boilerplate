@@ -1,23 +1,28 @@
-import { createDb, migrate } from 'postgres-migrations';
-import { PgsqlConnectionConfig, Logger } from '@Shared/types'
+import * as PgSQL from 'postgres-migrations';
+import { IPgSQLConnectionOptions, Logger } from '@Shared/types'
 
 // ref. https://www.npmjs.com/package/postgres-migrations
 export class PgsqlMigration {
-    constructor(private dbConfig: PgsqlConnectionConfig, private log: Logger) { }
+    constructor(private dbConfig: IPgSQLConnectionOptions, private log: Logger) { }
 
     async create(): Promise<void> {
         try {
-            const dbName = 'test';
-            await createDb(dbName, this.dbConfig)
+            const { database } = this.dbConfig;
+            await PgSQL.createDb(database, {
+                ...this.dbConfig,
+                defaultDatabase: 'postgres',
+            })
         } catch (e) {
             e.message = `Unable to create database: ${e.message}`;
             this.log.error(e);
         }
     }
 
-    async execute(scriptPath: string): Promise<void> {
+    async migrate(scriptPath: string): Promise<void> {
         try {
-            await migrate(this.dbConfig, scriptPath)
+            this.log.info(`Migrating path: ${scriptPath}`);
+            await PgSQL.migrate(this.dbConfig, scriptPath)
+            this.log.info('Migration completed');
         } catch (e) {
             e.message = `Failed to migrate database: ${e.message}`;
             this.log.error(e);

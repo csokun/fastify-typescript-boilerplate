@@ -14,5 +14,14 @@
         "level": "info",
         "name": "sample-app",
         "prettyPrint": false
+    },
+    "pgsql": {
+        "database": "sample-app",
+        "user": "*******",
+        "password": "*******",
+        "host": "localhost",
+        "port": 5432,
+        "poolSize": 10,
+        "ssl": true
     }
 }

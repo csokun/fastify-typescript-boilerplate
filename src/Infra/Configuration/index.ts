@@ -2,8 +2,36 @@ import * as nconf from 'nconf';
 import * as path from 'path';
 import * as fs from 'fs';
 
+const createEnv = () => {
+    const name = (process.env.APP_ENV || 'development').toLowerCase();
+
+    switch (name) {
+        case 'production':
+            return {
+                name,
+                alias: 'prod',
+                [name]: true,
+            };
+
+        case 'staging':
+            return {
+                name,
+                alias: 'staging',
+                [name]: true,
+            };
+
+        default:
+            // developer machine configuration
+            return {
+                name: 'local',
+                alias: 'local',
+                local: true,
+            };
+    }
+};
+
 export function loadConfig<T>({ configPath = '' }: { configPath: string }): T {
-    const appEnv = 'local';
+    const { alias: appEnv } = createEnv();
     const envVarsAppPrefix = 'app__';
     const rootPath = path.join(__dirname, configPath);
     if (!fs.existsSync(rootPath)) {
