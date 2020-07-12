@@ -1,4 +1,4 @@
-import { SwaggerSchema } from '@Shared/types';
+import { SwaggerSchema } from '@Shared/Types';
 
 export const usersSchema: SwaggerSchema = {
     summary: 'List all user',

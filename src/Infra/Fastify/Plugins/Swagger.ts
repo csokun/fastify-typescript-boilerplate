@@ -2,7 +2,7 @@
 const swagger = require('fastify-swagger');
 const fp = require('fastify-plugin');
 
-import { ISwaggerOptions, Application } from '@Shared/types';
+import { ISwaggerOptions, Application } from '@Shared/Types';
 
 async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promise<void> {
     if (!options.enabled) return;

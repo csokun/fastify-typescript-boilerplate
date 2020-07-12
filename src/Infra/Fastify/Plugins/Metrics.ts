@@ -2,7 +2,7 @@
 const fp = require('fastify-plugin');
 const metricsPlugin = require('fastify-metrics');
 
-import { IMetricsOptions, Application } from '@Shared/types';
+import { IMetricsOptions, Application } from '@Shared/Types';
 
 async function massivePlugin(app: Application, options: IMetricsOptions): Promise<void> {
     if (!options.enabled) return;

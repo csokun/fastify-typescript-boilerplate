@@ -1,4 +1,4 @@
-import { SwaggerSchema } from '@Shared/types';
+import { SwaggerSchema } from '@Shared/Types';
 
 export const healthSchema: SwaggerSchema = {
     summary: 'Health Check',

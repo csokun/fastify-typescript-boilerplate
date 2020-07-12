@@ -13,7 +13,7 @@ import {
   ISwaggerOptions,
   IPgSQLConnectionOptions,
   IMetricsOptions
-} from '@Shared/types';
+} from '@Shared/Types';
 
 type fastifyCreateOptions = {
   disableRequestLogging: boolean,

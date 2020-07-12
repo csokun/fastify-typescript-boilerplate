@@ -11,7 +11,7 @@ https://developer.okta.com/blog/2018/11/15/node-express-typescript
 - Metrics: https://gitlab.com/m03geek/fastify-metrics
 
 
-# PostgreSQL Integration
+## PostgreSQL Integration
 
 Enable PostgreSQL integration by updating the `pgsql` configuration properties in `config.json`.
 

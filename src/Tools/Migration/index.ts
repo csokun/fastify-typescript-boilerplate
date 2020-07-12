@@ -3,7 +3,7 @@ import { Logger, AppConfig } from '../../Infra'
 import { PgsqlMigration } from './PgsqlMigration';
 // 1. connection string
 // 2. migration directory
-import { IAppConfig } from '@Shared/types';
+import { IAppConfig } from '@Shared/Types';
 
 const {
     pgsql: pgsqlConfig,

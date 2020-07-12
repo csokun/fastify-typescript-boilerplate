@@ -1,5 +1,5 @@
 import * as PgSQL from 'postgres-migrations';
-import { IPgSQLConnectionOptions, Logger } from '@Shared/types'
+import { IPgSQLConnectionOptions, Logger } from '@Shared/Types'
 
 // ref. https://www.npmjs.com/package/postgres-migrations
 export class PgsqlMigration {

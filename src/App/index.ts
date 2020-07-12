@@ -1,5 +1,5 @@
 // Locals
-import { Application } from '@Shared/types';
+import { Application } from '@Shared/Types';
 import { Healthz } from './Healthz';
 import { Users } from './Users';
 

@@ -1,4 +1,4 @@
-import { Application } from '@Shared/types';
+import { Application } from '@Shared/Types';
 import * as Schemas from './schemas';
 
 export async function Users(app: Application): Promise<void> {

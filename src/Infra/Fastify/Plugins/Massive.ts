@@ -2,7 +2,7 @@
 import * as massive from 'massive';
 const fp = require('fastify-plugin');
 
-import { IPgSQLConnectionOptions, Application } from '@Shared/types';
+import { IPgSQLConnectionOptions, Application } from '@Shared/Types';
 
 async function massivePlugin(app: Application, options: IPgSQLConnectionOptions): Promise<void> {
     if (options.enabled) {
