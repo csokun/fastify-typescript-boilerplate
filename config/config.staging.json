@@ -1,1 +1,8 @@
-{}
+{
+    "metrics": {
+        "enabled": true
+    },
+    "pgsql": {
+        "database": "sample-app-staging"
+    }
+}

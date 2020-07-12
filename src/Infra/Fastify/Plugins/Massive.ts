@@ -7,7 +7,7 @@ import { IPgSQLConnectionOptions, Application } from '@Shared/types';
 async function massivePlugin(app: Application, options: IPgSQLConnectionOptions): Promise<void> {
     if (options.enabled) {
         try {
-            app.log.info('Establish pgsql connection');
+            app.log.info('Massive plugin enabled');
             const db = await massive(options);
             app.decorate('pg', db);
         } catch (e) {

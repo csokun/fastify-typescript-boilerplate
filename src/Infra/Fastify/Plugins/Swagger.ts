@@ -5,6 +5,8 @@ const fp = require('fastify-plugin');
 import { ISwaggerOptions, Application } from '@Shared/types';
 
 async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promise<void> {
+    if (!options.enabled) return;
+    app.log.info('Swagger plugin enabled');
     const routePrefix = '/documentations';
     app.register(swagger, {
         swagger: {

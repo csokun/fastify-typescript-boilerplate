@@ -2,25 +2,32 @@
 import * as Fastify from 'fastify';
 const helmet = require('fastify-helmet');
 import { genReqId } from './Common';
-import { Swagger, Massive } from './Plugins';
+import {
+  Swagger,
+  Massive,
+  Metrics,
+} from './Plugins';
 import {
   Application,
   Logger,
   ISwaggerOptions,
-  IPgSQLConnectionOptions
+  IPgSQLConnectionOptions,
+  IMetricsOptions
 } from '@Shared/types';
 
 type fastifyCreateOptions = {
   disableRequestLogging: boolean,
   logger: Logger,
+  metricsConfig?: IMetricsOptions,
   pgsqlConfig?: IPgSQLConnectionOptions,
-  swaggerConfig: ISwaggerOptions
+  swaggerConfig?: ISwaggerOptions
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function create({
   disableRequestLogging = true,
   logger,
+  metricsConfig,
   pgsqlConfig,
   swaggerConfig,
 }: fastifyCreateOptions): Application {
@@ -37,7 +44,8 @@ export function create({
   fastify
     .register(helmet, {})
     .register(Swagger, swaggerConfig)
-    .register(Massive, pgsqlConfig);
+    .register(Massive, pgsqlConfig)
+    .register(Metrics, metricsConfig);
 
   return fastify;
 }

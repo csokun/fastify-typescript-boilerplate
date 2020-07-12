@@ -1,9 +1,11 @@
 import { IPgSQLConnectionOptions } from './pgsql';
+import { IMetricsOptions } from './metric';
 
 export { Application } from './application';
 export { SwaggerSchema } from './swagger';
 export { IPgSQLConnectionOptions } from './pgsql';
 export { Logger } from './logger';
+export { IMetricsOptions } from './metric';
 
 export interface IWebOptions {
     port: number,
@@ -31,4 +33,5 @@ export interface IAppConfig {
     logger: ILoggerCustomOptions,
     swagger: ISwaggerOptions,
     pgsql: IPgSQLConnectionOptions,
+    metrics: IMetricsOptions
 }

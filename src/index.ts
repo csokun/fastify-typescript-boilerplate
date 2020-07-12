@@ -12,12 +12,14 @@ const {
     fastify: fastifyConfig,
     logger: loggerConfig,
     pgsql: pgsqlConfig,
+    metrics: metricsConfig,
     swagger: swaggerConfig
 } = appConfig;
 
 const fastify = Server.create({
     ...fastifyConfig,
     logger: Logger.create({ ...loggerConfig }),
+    metricsConfig,
     pgsqlConfig,
     swaggerConfig,
 });

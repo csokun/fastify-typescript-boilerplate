@@ -15,6 +15,14 @@
         "name": "sample-app",
         "prettyPrint": false
     },
+    "metrics": {
+        "enabled": false,
+        "endpoint": "/metrics",
+        "blacklist": [
+            "/healthz",
+            "/metrics"
+        ]
+    },
     "pgsql": {
         "enabled": false,
         "database": "sample-app",
