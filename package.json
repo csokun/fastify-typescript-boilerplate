@@ -1,7 +1,7 @@
 {
-  "name": "fastify-bundle",
+  "name": "fastify-typescript-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fastify Typescript Boilerplate",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist/*",
@@ -14,7 +14,10 @@
     "start": "node ./dist/index.js",
     "pgsql:migrate": "node ./dist/Tools/Migration/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "Fastify",
+    "Typescript"
+  ],
   "author": "Sokun Chorn",
   "license": "ISC",
   "dependencies": {
