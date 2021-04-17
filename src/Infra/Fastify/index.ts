@@ -6,13 +6,15 @@ import {
   Swagger,
   Massive,
   Metrics,
+  OpenTelemetry,
 } from './Plugins';
 import {
   Application,
   Logger,
   ISwaggerOptions,
   IPgSQLConnectionOptions,
-  IMetricsOptions
+  IMetricsOptions,
+  IOpenTelemetryConfig
 } from '@Shared/Types';
 
 type fastifyCreateOptions = {
@@ -21,6 +23,7 @@ type fastifyCreateOptions = {
   metricsConfig?: IMetricsOptions,
   pgsqlConfig?: IPgSQLConnectionOptions,
   swaggerConfig?: ISwaggerOptions
+  telemetryConfig?: IOpenTelemetryConfig
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -30,6 +33,7 @@ export function create({
   metricsConfig,
   pgsqlConfig,
   swaggerConfig,
+  telemetryConfig,
 }: fastifyCreateOptions): Application {
   const fastify: Application = Fastify.fastify({
     logger,
@@ -46,6 +50,11 @@ export function create({
     .register(Swagger, swaggerConfig)
     .register(Massive, pgsqlConfig)
     .register(Metrics, metricsConfig);
+
+  // openTelemetry
+  if (telemetryConfig.enabled) {
+    fastify.register(OpenTelemetry, telemetryConfig)
+  }
 
   return fastify;
 }

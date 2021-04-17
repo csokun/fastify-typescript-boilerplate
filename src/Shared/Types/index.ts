@@ -1,5 +1,6 @@
 import { IPgSQLConnectionOptions } from './pgsql';
 import { IMetricsOptions } from './metric';
+import { OpenTelemetryPluginOptions } from '@autotelic/fastify-opentelemetry';
 
 export { Application } from './application';
 export { SwaggerSchema } from './swagger';
@@ -27,11 +28,17 @@ export interface ISwaggerOptions {
     title?: string,
     enabled: boolean,
 }
+
+export interface IOpenTelemetryConfig extends OpenTelemetryPluginOptions {
+    enabled: boolean
+}
+
 export interface IAppConfig {
     web: IWebOptions,
     fastify: IFastifyCustomOptions,
     logger: ILoggerCustomOptions,
     swagger: ISwaggerOptions,
     pgsql: IPgSQLConnectionOptions,
-    metrics: IMetricsOptions
+    metrics: IMetricsOptions,
+    telemetry: IOpenTelemetryConfig
 }

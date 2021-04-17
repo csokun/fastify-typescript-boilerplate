@@ -13,7 +13,8 @@ const {
     logger: loggerConfig,
     pgsql: pgsqlConfig,
     metrics: metricsConfig,
-    swagger: swaggerConfig
+    swagger: swaggerConfig,
+    telemetry: telemetryConfig
 } = appConfig;
 
 const fastify = Server.create({
@@ -22,6 +23,7 @@ const fastify = Server.create({
     metricsConfig,
     pgsqlConfig,
     swaggerConfig,
+    telemetryConfig,
 });
 
 fastify.register(App, {});
