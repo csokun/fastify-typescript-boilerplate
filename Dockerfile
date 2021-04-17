@@ -1,7 +1,7 @@
 # --------------------
 # Builder
 # --------------------
-FROM node:12-alpine AS builder
+FROM node:14-alpine AS builder
 
 WORKDIR /work
 COPY package.json package-lock.json ./
@@ -14,7 +14,7 @@ RUN npm install --production
 # --------------------
 # Runtime
 # --------------------
-FROM node:12-alpine AS runtime
+FROM node:14-alpine AS runtime
 
 WORKDIR /app
 COPY --from=builder /work/package.json /app/package.json

@@ -7,8 +7,8 @@ https://developer.okta.com/blog/2018/11/15/node-express-typescript
 - Swagger
 - Logger
 - PostgreSQL: Migration & Massive integration
-- Feature Flags: https://gitlab.com/m03geek/fastify-feature-flags
-- Metrics: https://gitlab.com/m03geek/fastify-metrics
+- [Feature Flags](https://gitlab.com/m03geek/fastify-feature-flags)
+- [Metrics](https://gitlab.com/m03geek/fastify-metrics)
 
 
 ## PostgreSQL Integration
@@ -45,4 +45,14 @@ Or overwrite the configuration via `ENV` like:
 app__pgsql__user=username \
 app__pgsql__password=password \
 npm start
+```
+
+### Database migration
+
+The boilerplate has [postgres-migrations](https://www.npmjs.com/package/postgres-migrations) bundle.
+
+Add your migration `*.sql` to `priv/migrations` using naming convention `<TIMESTAMP>_<description>.sql`.
+
+```bash
+npm run pgsql:migrate
 ```
