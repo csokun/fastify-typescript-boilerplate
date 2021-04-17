@@ -23,6 +23,16 @@
             "/metrics"
         ]
     },
+    "telemetry": {
+        "enabled": true,
+        "serviceName": "fastify-typescript-boilerplate",
+        "wrapRoutes": true,
+        "ignoreRoutes": [
+            "/healthz",
+            "/metrics",
+            "/favicon.ico"
+        ]
+    },
     "pgsql": {
         "enabled": false,
         "database": "sample-app",

@@ -21,6 +21,7 @@
   "author": "Sokun Chorn",
   "license": "ISC",
   "dependencies": {
+    "@autotelic/fastify-opentelemetry": "^0.11.1",
     "fastify": "^3.0.0",
     "fastify-helmet": "^4.0.2",
     "fastify-metrics": "^6.0.1",
@@ -32,6 +33,9 @@
     "uuid": "^8.2.0"
   },
   "devDependencies": {
+    "@opentelemetry/context-async-hooks": "^0.18.0",
+    "@opentelemetry/core": "^0.18.0",
+    "@opentelemetry/tracing": "^0.18.0",
     "@types/jest": "^26.0.22",
     "@types/massive": "^5.4.3",
     "@types/nconf": "^0.10.0",
