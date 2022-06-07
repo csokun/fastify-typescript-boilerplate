@@ -10,7 +10,7 @@ RUN npm ci
 COPY . .
 RUN npm test && \
     npm run build && \
-    rm -rf node_modules \
+    rm -rf node_modules && \
     npm ci --production
 
 # --------------------
