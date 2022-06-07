@@ -1,22 +1,24 @@
-import { HttpTraceContext } from '@opentelemetry/core'
-import { AsyncHooksContextManager } from '@opentelemetry/context-async-hooks'
-import {
-    BasicTracerProvider,
-    ConsoleSpanExporter,
-    SimpleSpanProcessor
-} from '@opentelemetry/tracing'
 import openTelemetryPlugin from '@autotelic/fastify-opentelemetry'
+import {
+    ConsoleSpanExporter,
+    BatchSpanProcessor
+} from '@opentelemetry/tracing'
+import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
+import { NodeTracerProvider } from '@opentelemetry/node'
+import { registerInstrumentations } from '@opentelemetry/instrumentation'
 
-// OpenTelemetry API Configuration
-const provider = new BasicTracerProvider()
+const provider = new NodeTracerProvider()
 
 provider.addSpanProcessor(
-    new SimpleSpanProcessor(new ConsoleSpanExporter())
+    new BatchSpanProcessor(new ConsoleSpanExporter())
 )
 
-provider.register({
-    contextManager: new AsyncHooksContextManager(),
-    propagator: new HttpTraceContext()
+provider.register()
+
+registerInstrumentations({
+    instrumentations: [
+        new HttpInstrumentation()
+    ]
 })
 
 export const OpenTelemetry = openTelemetryPlugin

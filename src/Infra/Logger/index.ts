@@ -8,7 +8,7 @@ export function create({
     level = 'info',
     prettyPrint = false
 }: ILoggerCustomOptions): Logger {
-    return pino({
+    return pino.default({
         name,
         enabled,
         level,

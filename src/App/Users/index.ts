@@ -19,7 +19,7 @@ export async function Users(app: Application): Promise<void> {
             // inject,
         } = request.openTelemetry()
         // Spans started in a wrapped route will automatically be children of the activeSpan.
-        const childSpan = tracer.startSpan(`${activeSpan.context.name} - child process`)
+        const childSpan = tracer.startSpan(`${activeSpan.spanContext.name} - child process`)
         // doSomeWork()
         childSpan.end()
         return userList;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Fastify from 'fastify';
-const helmet = require('fastify-helmet');
+const helmet = require('@fastify/helmet');
 import { genReqId } from './Common';
 import {
   Swagger,

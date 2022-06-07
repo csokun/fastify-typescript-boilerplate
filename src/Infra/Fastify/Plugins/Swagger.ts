@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const swagger = require('fastify-swagger');
+const swagger = require('@fastify/swagger');
 const fp = require('fastify-plugin');
 
 import { ISwaggerOptions, Application } from '@Shared/Types';
@@ -17,6 +17,8 @@ async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promis
             },
         },
         exposeRoute: options.enabled,
+        staticCSP: true,
+        transformStaticCSP: (header) => header,
         routePrefix
     });
 }
