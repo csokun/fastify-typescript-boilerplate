@@ -27,7 +27,7 @@
     "fastify-plugin": "^2.3.4",
     "fastify-swagger": "^3.5.0",
     "massive": "^6.9.0",
-    "nconf": "^0.11.2",
+    "nconf": "^0.11.4",
     "pino": "^6.11.3",
     "uuid": "^8.3.2"
   },
