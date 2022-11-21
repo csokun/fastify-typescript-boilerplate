@@ -21,7 +21,7 @@
   "author": "Sokun Chorn",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^3.29.0",
+    "fastify": "^3.29.4",
     "@fastify/helmet": "^8.1.0",
     "fastify-metrics": "^8.0.0",
     "fastify-plugin": "^3.0.1",
