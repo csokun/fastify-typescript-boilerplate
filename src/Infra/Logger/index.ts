@@ -8,11 +8,10 @@ export function create({
     level = 'info',
     prettyPrint = false
 }: ILoggerCustomOptions): Logger {
-    return pino.default({
+    const options = {
         name,
         enabled,
         level,
-        prettyPrint,
         redact: [
             'req.headers.authorization',
             ...redact,
@@ -38,5 +37,13 @@ export function create({
                 };
             }
         }
-    });
+    };
+
+    if (process.env.NODE_ENV !== "production" && prettyPrint) {
+        options['transport'] = {
+            target: 'pino-pretty'
+        };
+    }
+
+    return pino.default(options);
 }

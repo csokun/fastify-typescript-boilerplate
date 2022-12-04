@@ -15,11 +15,11 @@ async function massivePlugin(app: Application, options: IPgSQLConnectionOptions)
             process.exit(1);    // fatal
         }
     } else {
-        app.log.trace('PgSQLConnectionOptions is missing');
+        app.log.trace('PgSQLConnectionOptions is not enabled');
     }
 }
 
 export const Massive = fp(massivePlugin, {
-    fastify: '3.x',
+    fastify: '4.x',
     name: 'Massive'
 });

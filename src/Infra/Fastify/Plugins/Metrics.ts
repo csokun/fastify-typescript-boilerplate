@@ -11,6 +11,6 @@ async function massivePlugin(app: Application, options: IMetricsOptions): Promis
 }
 
 export const Metrics = fp(massivePlugin, {
-    fastify: '3.x',
+    fastify: '4.x',
     name: 'Metrics'
 });

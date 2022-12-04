@@ -1,9 +1,14 @@
 {
-    "web": {
-        "port": "3000",
-        "ip": "127.0.0.1"
-    },
-    "pgsql": {
-        "database": "sample-app-local"
-    }
+  "web": {
+    "port": "3000",
+    "ip": "127.0.0.1"
+  },
+  "pgsql": {
+    "database": "sample-app-local"
+  },
+  "logger": {
+    "enabled": true,
+    "level": "trace",
+    "prettyPrint": true
+  }
 }

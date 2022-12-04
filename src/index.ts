@@ -36,6 +36,6 @@ process.on("unhandledRejection", error => {
     fastify.log.error(error);
 });
 
-fastify.listen(port, ip, (err) => {
+fastify.listen({ port, host: `${ip}` }, (err) => {
     if (err) fastify.log.error(err);
 });

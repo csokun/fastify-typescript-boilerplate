@@ -24,6 +24,6 @@ async function swaggerPlugin(app: Application, options: ISwaggerOptions): Promis
 }
 
 export const Swagger = fp(swaggerPlugin, {
-    fastify: '3.x',
+    fastify: '4.x',
     name: 'Swagger'
 });
