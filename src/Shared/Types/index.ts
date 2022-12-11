@@ -9,36 +9,36 @@ export { Logger } from './logger';
 export { IMetricsOptions } from './metric';
 
 export interface IWebOptions {
-    port: number,
-    ip: string
+  port: number;
+  ip: string;
 }
 export interface ILoggerCustomOptions {
-    name: string,
-    level: string,
-    enabled: boolean,
-    redact?: string[],
-    prettyPrint?: boolean
+  name: string;
+  level: string;
+  enabled: boolean;
+  redact?: string[];
+  prettyPrint?: boolean;
 }
 
 export interface IFastifyCustomOptions {
-    disableRequestLogging: boolean
+  disableRequestLogging: boolean;
 }
 
 export interface ISwaggerOptions {
-    title?: string,
-    enabled: boolean,
+  title?: string;
+  enabled: boolean;
 }
 
 export interface IOpenTelemetryConfig extends OpenTelemetryPluginOptions {
-    enabled: boolean
+  enabled: boolean;
 }
 
 export interface IAppConfig {
-    web: IWebOptions,
-    fastify: IFastifyCustomOptions,
-    logger: ILoggerCustomOptions,
-    swagger: ISwaggerOptions,
-    pgsql: IPgSQLConnectionOptions,
-    metrics: IMetricsOptions,
-    telemetry: IOpenTelemetryConfig
+  web: IWebOptions;
+  fastify: IFastifyCustomOptions;
+  logger: ILoggerCustomOptions;
+  swagger: ISwaggerOptions;
+  pgsql: IPgSQLConnectionOptions;
+  metrics: IMetricsOptions;
+  telemetry: IOpenTelemetryConfig;
 }

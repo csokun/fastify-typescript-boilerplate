@@ -2,29 +2,24 @@
 import * as Fastify from 'fastify';
 const helmet = require('@fastify/helmet');
 import { genReqId } from './Common';
-import {
-  Swagger,
-  Massive,
-  Metrics,
-  OpenTelemetry,
-} from './Plugins';
+import { Swagger, Massive, Metrics, OpenTelemetry } from './Plugins';
 import {
   Application,
   Logger,
   ISwaggerOptions,
   IPgSQLConnectionOptions,
   IMetricsOptions,
-  IOpenTelemetryConfig
+  IOpenTelemetryConfig,
 } from '@Shared/Types';
 
 type fastifyCreateOptions = {
-  disableRequestLogging: boolean,
-  logger: Logger,
-  metricsConfig?: IMetricsOptions,
-  pgsqlConfig?: IPgSQLConnectionOptions,
-  swaggerConfig?: ISwaggerOptions
-  telemetryConfig?: IOpenTelemetryConfig
-}
+  disableRequestLogging: boolean;
+  logger: Logger;
+  metricsConfig?: IMetricsOptions;
+  pgsqlConfig?: IPgSQLConnectionOptions;
+  swaggerConfig?: ISwaggerOptions;
+  telemetryConfig?: IOpenTelemetryConfig;
+};
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function create({
@@ -53,9 +48,8 @@ export function create({
 
   // openTelemetry
   if (telemetryConfig.enabled) {
-    fastify.register(OpenTelemetry, telemetryConfig)
+    fastify.register(OpenTelemetry, telemetryConfig);
   }
 
   return fastify;
 }
-

@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": [
-      "es2016"
-    ],
+    "lib": ["es2016"],
     "rootDir": "src",
     "allowJs": true,
     "target": "es2016",
@@ -12,16 +10,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "paths": {
-      "@Shared/*": [
-        "src/Shared/*"
-      ],
+      "@Shared/*": ["src/Shared/*"]
     }
   },
-  "include": [
-    "./src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

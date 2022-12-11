@@ -1,5 +1,5 @@
 export interface IMetricsOptions {
-    enabled: boolean,
-    endpoint?: string,
-    blacklist?: string | string[]
+  enabled: boolean;
+  endpoint?: string;
+  blacklist?: string | string[];
 }
